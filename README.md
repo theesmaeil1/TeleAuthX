@@ -1,7 +1,7 @@
 
 # TeleAuthX — اتصال امن و رسمی به تلگرام
 
-![TeleAuthX Banner](https://via.placeholder.com/1200x400.png?text=TeleAuthX+%E2%80%94+Telegram+Login+Made+Easy)  
+![TeleAuthX Banner](https://www.digikala.com/mag/wp-content/uploads/2024/10/11-1-13.jpg)  
 *اتصال امن، سریع و رسمی کاربران تلگرام به پروژه‌های شما*
 
 ---
