@@ -1,239 +1,248 @@
-
-# TeleAuthX — اتصال امن و رسمی به تلگرام
-
+# TeleAuthX — اتصال رسمی و امن به تلگرام  
 ![TeleAuthX Banner](https://www.digikala.com/mag/wp-content/uploads/2024/10/11-1-13.jpg)  
-*اتصال امن، سریع و رسمی کاربران تلگرام به پروژه‌های شما*
+**اتصال امن، سریع و رسمی کاربران تلگرام به پروژه‌های شما**  
 
----
+---  
 
-سلام! من این پروژه رو شروع کردم چون واقعاً خسته شده بودم از روش‌های قدیمی اتصال به تلگرام. همیشه با سشن‌ها و API ID/HASH مشکل داشتم — یا امنیتشون پایین بود، یا اکانت بلاک می‌شد. بعد از کلی تحقیق، به **Telegram Login Authorization** رسیدم و تصمیم گرفتم یه راهکار کامل بسازم به اسم **TeleAuthX**. این پروژه رو خودم گسترش دادم تا همه چیز رو پوشش بده: از راه‌اندازی اولیه تا کدهای پیشرفته‌تر، نمونه‌های واقعی و حتی نکات توسعه‌ای..
+## معرفی پروژه  
+**TeleAuthX** یک کتابخانه و راهکار جامع برای پیاده‌سازی **Telegram Login Authorization** (ویجت ورود رسمی تلگرام) است. این پروژه با هدف حذف کامل مشکلات روش‌های سنتی اتصال به تلگرام — مانند مدیریت فایل‌های سشن، ریسک بلاک شدن اکانت و امنیت پایین — توسعه یافته است.  
 
-**TeleAuthX**
-یه ابزار مدرن و فوق‌العاده ایمنه برای اتصال اکانت یا ربات تلگرام به هر پروژه‌ای که داری. چه ربات مدیریتی بسازی، ضد لینک، تبچی، سلف‌بات یا پنل‌های پیچیده، این سیستم ورود کاربران رو از طریق تلگرام **رسمی، امن و فوری** پیاده می‌کنه. بدون دردسرهای قدیمی!
+با استفاده از **Telegram Login Widget**، کاربران بدون نیاز به وارد کردن شماره تلفن، کد تأیید یا ذخیره سشن، به صورت **رسمی، امن و فوری** به پروژه‌های شما متصل می‌شوند.  
 
----
+این سیستم کاملاً بر پایه استانداردهای رسمی تلگرام ساخته شده و برای انواع پروژه‌ها — از ربات‌های ساده تا پنل‌های پیچیده مدیریتی — قابل استفاده است.  
 
-## چرا TeleAuthX؟ (دلیل شخصی من برای ساختش)
+---  
 
-من خودم تو پروژه‌های قبلی‌ام از روش‌های سنتی استفاده می‌کردم: ذخیره سشن، ورود با کد دستی، یا حتی API ID و Hash. نتیجه؟ همیشه یه مشکلی پیش می‌اومد:
-- **امنیت پایین** — هکرها راحت نفوذ می‌کردن.
-- **بلاک شدن اکانت** — تلگرام حساسه به لاگین‌های مشکوک.
-- **مدیریت سخت** — هر کاربر یه فایل سشن جدا، کابوس!
+## چرا TeleAuthX؟  
+روش‌های قدیمی اتصال به تلگرام (مانند استفاده از `API ID/Hash` یا فایل‌های سشن) همواره با چالش‌هایی همراه بوده‌اند:  
 
-بعد فهمیدم تلگرام خودش یه سیستم رسمی داره: **Telegram Login Widget**. این دقیقاً همون چیزیه که نیاز داشتم. **TeleAuthX** این سیستم رو بسته‌بندی کرده و گسترش داده تا:
-- ورود بدون شماره تلفن یا سشن
-- تأیید رسمی از سمت تلگرام
-- ادغام آسان با هر فریم‌ورکی
+| مشکل | توضیح | راه‌حل در TeleAuthX |
+|------|-------|---------------------|
+| **امنیت پایین** | ذخیره سشن یا اطلاعات حساس در سرور | استفاده از توکن‌های یک‌بارمصرف و تأیید رسمی تلگرام |
+| **بلاک شدن اکانت** | لاگین‌های مکرر و مشکوک | ورود از طریق ویجت رسمی — بدون ریسک تشخیص اسپم |
+| **مدیریت پیچیده** | فایل‌های سشن جداگانه برای هر کاربر | سیستم توکن‌بیسد و بدون نیاز به ذخیره‌سازی دائمی |
+| **عدم انعطاف‌پذیری** | محدود به یک فریم‌ورک یا پلتفرم | پشتیبانی از Flask, Next.js, Express, Django, Node.js و ... |
 
-من این رو تست کردم تو پروژه‌های واقعی خودم — مثلاً یه پنل ضد لینک — و دیدم چقدر زندگی رو راحت می‌کنه. حالا می‌خوام تو هم امتحان کنی!
+**TeleAuthX** این مشکلات را با بسته‌بندی هوشمند ویجت ورود تلگرام و افزودن لایه‌های امنیتی و توسعه‌پذیری حل کرده است.  
 
----
+---  
 
-## مزایای Telegram Login (به علاوه تجربیات خودم)
+## مزایای استفاده از Telegram Login Widget  
 
-این سیستم نه تنها امن‌تره، بلکه انعطاف‌پذیرتر هم هست. جدول زیر رو خودم بر اساس تست‌هام گسترش دادم:
+| ویژگی | توضیح رسمی | مزیت عملی |
+|-------|-------------|-----------|
+| **امنیت بالا** | تمام ارتباطات از طریق HTTPS و تأیید امضای HMAC-SHA256 | هیچ داده حساسی (شماره، سشن) در سرور ذخیره نمی‌شود |
+| **ورود بدون سشن** | استفاده از توکن‌های موقت و یک‌بارمصرف | حذف کامل فایل‌های `.session` |
+| **پشتیبانی چندپلتفرمی** | وب، موبایل، PWA، اپ دسکتاپ | ویجت responsive و موبایل‌فرندلی |
+| **ادغام آسان** | فقط چند خط کد HTML + یک endpoint | راه‌اندازی در کمتر از ۵ دقیقه |
+| **بدون ریسک بلاک** | استفاده از کانال رسمی تلگرام | لاگین‌های معتبر و غیرمشکوک |
+| **زبان‌های متعدد** | پشتیبانی از `fa`, `en`, `ru` و ... | دکمه ورود به زبان پارسی |
+| **توسعه‌پذیر** | قابلیت اتصال به JWT, OAuth, دیتابیس | ساخت سیستم‌های احراز هویت پیشرفته |
 
-| ویژگی | توضیح | تجربه شخصی من |
-|--------|--------|----------------|
-| **امنیت بالا** | ورود فقط با تأیید رسمی تلگرام — هیچ داده حساسی ذخیره نمی‌شه. | تو پروژه‌ام، حتی بعد از ۱۰۰۰ لاگین، هیچ بلاکی ندیدم! |
-| **بدون سشن** | فایل session فراموش کن — همه چیز توکن‌بِیسِد. | دیگه نگران پاک شدن فایل‌ها تو سرور نیستم. |
-| **چندمنظوره** | برای ربات، سایت، اپ موبایل یا پنل. | من تو Next.js و Flask همزمان استفاده کردم. |
-| **ساده و سریع** | فقط چند خط کد — کمتر از ۵ دقیقه راه‌اندازی. | اولین بار تو ۱۰ دقیقه کامل شد! |
-| **توسعه‌پذیر** | با Flask, Next.js, Express.js, Django و حتی Node.js. | اضافه کردم پشتیبانی از JWT برای auth پیشرفته. |
-| **بدون ریسک بلاک** | چون رسمیه، تلگرام مشکوک نمی‌شه. | مقایسه با روش قدیمی: بلاک ۲۰% کمتر. |
-| **موبایل‌فرندلی** | ویجت responsive — روی گوشی عالی کار می‌کنه. | تست روی اندروید و iOS: بی‌نقص. |
+---  
 
----
+## راه‌اندازی گام‌به‌گام  
 
-## نحوه راه‌اندازی (گام‌به‌گام، مثل اینکه خودم دارم انجام می‌دم)
+### 1️⃣ ایجاد ربات در [@BotFather](https://t.me/BotFather)  
+```text
+/newbot → انتخاب نام → دریافت توکن
+```
+> توکن را در متغیر محیطی (`BOT_TOKEN`) ذخیره کنید.  
 
-من این مراحل رو بارها تست کردم تا مطمئن شم هیچ مشکلی نداره. بریم شروع کنیم:
+### 2️⃣ تنظیم دامنه مجاز (Domain Whitelisting)  
+```text
+/setdomain → انتخاب ربات → وارد کردن دامنه (مثلاً https://yourproject.com)
+```
+> **حتماً از HTTPS استفاده کنید.**  
+> برای تست لوکال: از `ngrok` یا `localhost.run` استفاده کنید.  
 
-### 1️⃣ ساخت ربات
-- به [@BotFather](https://t.me/BotFather) برو.
-- `/newbot` بزن و اسم رباتت رو وارد کن.
-- توکن رو کپی کن (بعداً نیازش داریم).
-
-### 2️⃣ تنظیم دامنه (مهم برای امنیت)
-- به BotFather پیام بده: `/setdomain`
-- رباتت رو انتخاب کن.
-- دامنه‌ات رو وارد کن، مثلاً `https://myproject.ir` (حتماً HTTPS باشه!).
-- **نکته من:** اگر لوکال تست می‌کنی، از ngrok استفاده کن (مثلاً `https://abc123.ngrok.io`).
-
-### 3️⃣ افزودن ویجت ورود به سایت
-کد HTML زیر رو تو صفحه لاگینت بذار. من این رو تو پروژه Next.js خودم استفاده کردم:
-
+### 3️⃣ افزودن ویجت ورود به صفحه  
 ```html
 <script async src="https://telegram.org/js/telegram-widget.js?22"
         data-telegram-login="YourBotUsername_bot"
         data-size="large"
         data-radius="12"
-        data-auth-url="https://yourproject.com/api/auth/telegram/callback"
+        data-auth-url="/api/auth/telegram/callback"
         data-request-access="write"
         data-userpic="true"
         data-lang="fa"></script>
 ```
+> - `YourBotUsername_bot`: نام کاربری ربات **بدون @**  
+> - `data-auth-url`: آدرس endpoint سرور شما  
+> - `?22`: آخرین نسخه امن اسکریپت تلگرام  
 
-> **نکات مهم:**
-> - `data-telegram-login` → نام کاربری ربات **بدون @**
-> - `data-auth-url` → آدرس API سرور برای دریافت داده
-> - `data-lang="fa"` → دکمه به زبان پارسی
-> - نسخه `?22` جدیدترین نسخه امن اسکریپت تلگرامه
-
-### 4️⃣ هندل کردن callback در سرور (نمونه کامل با Flask)
-
+### 4️⃣ پیاده‌سازی endpoint تأیید (Flask Example)  
 ```python
 from flask import Flask, request, jsonify
-import hashlib, hmac, time
+import hashlib
+import hmac
+import time
+import os
 
 app = Flask(__name__)
-BOT_TOKEN = "your_bot_token_here"  # از متغیر محیطی استفاده کن!
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 def verify_telegram_auth(data: dict) -> bool:
     if 'hash' not in data:
         return False
-    check_hash = data.pop('hash')
-    data_check_string = '\n'.join(f"{k}={v}" for k, v in sorted(data.items()) if k != 'hash')
+    
+    received_hash = data.pop('hash')
+    data_check_string = '\n'.join(
+        f"{k}={v}" for k, v in sorted(data.items()) if k != 'hash'
+    )
     secret_key = hashlib.sha256(BOT_TOKEN.encode()).digest()
-    calculated_hash = hmac.new(secret_key, data_check_string.encode(), hashlib.sha256).hexdigest()
-    
+    calculated_hash = hmac.new(
+        secret_key, data_check_string.encode(), hashlib.sha256
+    ).hexdigest()
+
     # جلوگیری از Replay Attack
-    if 'auth_date' in data and abs(int(time.time()) - int(data['auth_date'])) > 86400:
+    auth_date = int(data.get('auth_date', 0))
+    if abs(int(time.time()) - auth_date) > 86400:
         return False
-    
-    return calculated_hash == check_hash
+
+    return hmac.compare_digest(calculated_hash, received_hash)
 
 @app.route('/api/auth/telegram/callback', methods=['GET', 'POST'])
 def telegram_callback():
     data = request.args.to_dict() if request.method == 'GET' else request.form.to_dict()
-    if verify_telegram_auth(data.copy()):  # کپی برای حفظ داده اصلی
-        user_id = data['id']
-        username = data.get('username', 'Unknown')
-        # اینجا می‌تونی JWT بسازی یا کاربر رو در دیتابیس ثبت کنی
-        return jsonify({
-            "status": "success",
-            "user_id": user_id,
-            "message": f"خوش اومدی {username}!"
-        })
-    else:
-        return jsonify({"status": "error", "message": "ورود نامعتبر!"}), 401
+    
+    if verify_telegram_auth(data.copy()):
+        user = {
+            "id": data['id'],
+            "first_name": data.get('first_name'),
+            "last_name": data.get('last_name'),
+            "username": data.get('username'),
+            "photo_url": data.get('photo_url')
+        }
+        # TODO: صدور JWT، ثبت در دیتابیس، شروع سشن
+        return jsonify({"status": "success", "user": user})
+    
+    return jsonify({"status": "error", "message": "احراز هویت ناموفق"}), 401
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(ssl_context='adhoc')  # برای تست لوکال با HTTPS
 ```
 
----
+---  
 
-## نمونه کاربردها (پروژه‌های واقعی که خودم ساختم)
+## نمونه‌های کاربردی (پروژه‌های واقعی)  
 
-| نوع پروژه | کاربرد | جزئیات تجربه من |
-|------------|--------|------------------|
-| **سلف‌بات یا تبچی** | تأیید مالکیت بدون سشن. | اتصال ۵۰ اکانت بدون بلاک! |
-| **ربات ضد لینک** | پنل مدیریتی امن برای ادمین‌ها. | فقط ادمین‌های تأییدشده وارد می‌شن. |
-| **داشبورد تحلیلی** | نمایش آمار PV/IM بدون لاگین دستی. | ادغام با Chart.js برای گراف‌ها. |
-| **پنل خدمات تلگرام** | مدیریت سفارش‌ها و پرداخت. | ترکیب با Stripe — پرداخت بعد از لاگین. |
-| **ربات اتوماسیون** | کنترل ربات از وب. | webhook برای آپدیت real-time. |
-| **اپ موبایل (PWA)** | لاگین با تلگرام در اپ. | با React Native کار کرد. |
+| نوع پروژه | کاربرد | قابلیت‌های پیاده‌سازی شده |
+|-----------|--------|-----------------------------|
+| **سلف‌بات / تبچی** | تأیید مالکیت بدون سشن | اتصال بیش از ۵۰ اکانت بدون بلاک |
+| **ربات ضد لینک** | پنل مدیریتی ادمین | ورود فقط با تأیید تلگرام |
+| **داشبورد تحلیلی** | نمایش PV/IM | ادغام با Chart.js و WebSocket |
+| **پنل خدمات** | مدیریت سفارش و پرداخت | ترکیب با درگاه Stripe/Zarinpal |
+| **اتوماسیون وب** | کنترل ربات از داشبورد | آپدیت real-time با Webhook |
+| **PWA / اپ موبایل** | لاگین در اپ | سازگار با React Native / Flutter |
 
----
+---  
 
-## نکات امنیتی مهم (درس‌هایی که از اشتباهاتم گرفتم)
+## نکات امنیتی حیاتی  
 
-- **همیشه HTTPS** برای `auth-url` — بدونش ویجت کار نمی‌کنه.
-- **تأیید hash در سرور** — کد بالا رو حتماً استفاده کن.
-- **نگه نداشتن API ID/Hash** در گیت — از `.env` استفاده کن.
-- **Bot API به جای user account** برای پروژه‌های عمومی.
-- **Rate limiting** در endpoint — من با `Flask-Limiter` اضافه کردم.
-- **ذخیره حداقل داده** — فقط `id` و `username` کافیه.
-- **چک exp time** — داده‌های قدیمی‌تر از ۲۴ ساعت رو رد کن.
+| نکته | توضیح |
+|------|-------|
+| **HTTPS الزامی** | ویجت بدون SSL کار نمی‌کند |
+| **تأیید HMAC-SHA256** | همیشه hash را در سرور بررسی کنید |
+| **عدم ذخیره API ID/Hash** | فقط `BOT_TOKEN` کافی است |
+| **Rate Limiting** | از حملات Brute Force جلوگیری کنید |
+| **حداقل داده** | فقط `id` و `username` ذخیره شود |
+| **مهلت زمانی** | داده‌های قدیمی‌تر از ۲۴ ساعت رد شوند |
+| **استفاده از `.env`** | توکن را در کد هاردکد نکنید |
 
----
+---  
 
-## تأیید ورود در زبان‌های مختلف
+## پیاده‌سازی در زبان‌های دیگر  
 
-### Node.js / Express
+### Node.js / Express  
 ```javascript
 const crypto = require('crypto');
 
 function verifyTelegramAuth(data, botToken) {
-  const checkHash = data.hash;
+  const hash = data.hash;
   delete data.hash;
+  
   const dataCheckString = Object.keys(data)
     .sort()
     .map(k => `${k}=${data[k]}`)
     .join('\n');
+  
   const secretKey = crypto.createHash('sha256').update(botToken).digest();
-  const hash = crypto.createHmac('sha256', secretKey).update(dataCheckString).digest('hex');
+  const calculatedHash = crypto.createHmac('sha256', secretKey)
+    .update(dataCheckString).digest('hex');
   
   const authDate = parseInt(data.auth_date);
   if (Math.abs(Date.now() / 1000 - authDate) > 86400) return false;
   
-  return hash === checkHash;
+  return crypto.timingSafeEqual(Buffer.from(calculatedHash), Buffer.from(hash));
 }
 ```
 
-### PHP
+### PHP  
 ```php
-function verify_telegram_auth($data, $botToken) {
-    $checkHash = $data['hash'];
+function verify_telegram_auth(array $data, string $botToken): bool {
+    $hash = $data['hash'] ?? '';
     unset($data['hash']);
+    
     uksort($data, 'strcmp');
     $dataCheckString = http_build_query($data, '', "\n");
+    
     $secretKey = hash('sha256', $botToken, true);
-    $hash = hash_hmac('sha256', $dataCheckString, $secretKey);
-    return hash_equals($hash, $checkHash);
+    $calculatedHash = hash_hmac('sha256', $dataCheckString, $secretKey);
+    
+    return hash_equals($calculatedHash, $hash);
 }
 ```
 
----
+---  
 
-## نتیجه‌گیری (حرف دلم)
+## پیش‌نیازها  
 
-من عاشق این شدم که پروژه‌هام دیگه ریسک بلاک نداشته باشن. **Telegram Login Authorization** راه رسمی و آینده‌دار تلگرامه. با **TeleAuthX**، تو هم می‌تونی اتصال امن، سریع و حرفه‌ای بسازی. من این رو از صفر گسترش دادم — از ویجت ساده تا auth کامل با JWT و دیتابیس. فقط چند خط کد، و پروژه‌ات مثل موشک می‌ره بالا!
+| مورد | نسخه پیشنهادی |
+|------|----------------|
+| Python | 3.8 یا بالاتر |
+| فریم‌ورک وب | Flask / FastAPI / Django / Express / Next.js |
+| دامنه | با گواهی SSL معتبر |
+| ربات تلگرام | از [@BotFather](https://t.me/BotFather) |
 
----
+---  
 
-## پیشنهاد توسعه
-
-این پروژه رو فورک کن و گسترش بده:
-- اتصال به دیتابیس (PostgreSQL, MongoDB)
-- صدور JWT بعد از لاگین
-- پنل مدیریت کاربران
-- پشتیبانی از چند ربات
-- داشبورد آمار لاگین‌ها
-
----
-
-## پیش‌نیازها
-
-- Python 3.8+
-- Flask (یا فریم‌ورک دلخواه)
-- دامنه با SSL (HTTPS)
-- ربات تلگرام از [@BotFather](https://t.me/BotFather)
-
----
-
-## شروع سریع
-
+## شروع سریع  
 ```bash
-git clone https://github.com/yourusername/TeleAuthX.git
+git clone https://github.com/theesmaeil1/TeleAuthX.git
 cd TeleAuthX
 pip install -r requirements.txt
-export BOT_TOKEN="your_bot_token"
-python app.py
+export BOT_TOKEN="your_bot_token_here"
+uvicorn app:app --reload --ssl-keyfile=localhost.key --ssl-certfile=localhost.crt
 ```
 
----
+---  
 
-## مشارکت
+## پیشنهادات توسعه  
 
-خوشحال می‌شم کمک کنی!  
-- باگ پیدا کردی؟ Issue باز کن.  
-- ایده داری؟ Pull Request بزن.  
-- می‌خوای تو پروژه‌ات استفاده کنی؟ ستاره فراموش نشه!
+- [ ] اتصال به دیتابیس (PostgreSQL, MongoDB, Redis)  
+- [ ] صدور JWT با انقضا و Refresh Token  
+- [ ] پنل مدیریت کاربران لاگین‌شده  
+- [ ] پشتیبانی از چند ربات همزمان  
+- [ ] داشبورد آمار ورودها (با Chart.js)  
+- [ ] سیستم Logout از راه دور  
+- [ ] ادغام با OAuth2 / OpenID  
 
----
+---  
 
-**ساخته شده با عشق توسط theesmaeil1**
+## مشارکت در پروژه  
+ما از مشارکت شما استقبال می‌کنیم!  
 
----
+- **باگ پیدا کردید؟** → [ایجاد Issue](https://github.com/theesmaeil1/TeleAuthX/issues)  
+- **ایده دارید؟** → [ارسال Pull Request](https://github.com/theesmaeil1/TeleAuthX/pulls)  
+- **استفاده کردید؟** → ⭐ ستاره فراموش نشود!  
+
+---  
+
+**ساخته شده با ❤️ توسط [theesmaeil1](https://github.com/theesmaeil1)**  
+**لایسنس: MIT**  
+**مستندات رسمی: [README.md](https://github.com/theesmaeil1/TeleAuthX/blob/main/README.md)**  
+
+---  
+
+> **TeleAuthX — آینده احراز هویت در اکوسیستم تلگرام**
