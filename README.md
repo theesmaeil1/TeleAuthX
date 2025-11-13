@@ -1,4 +1,4 @@
-```markdown
+
 # TeleAuthX — اتصال امن و رسمی به تلگرام
 
 ![TeleAuthX Banner](https://via.placeholder.com/1200x400.png?text=TeleAuthX+%E2%80%94+Telegram+Login+Made+Easy)  
@@ -236,5 +236,3 @@ python app.py
 **ساخته شده با عشق توسط theesmaeil1**
 
 ---
-```
-
